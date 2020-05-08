@@ -24,6 +24,7 @@ player1.addEventListener("click", () => {
   if (!gameOver) {
     playerOneValue++;
     if (playerOneValue === maxPlay) {
+      p1Display.classList.add("winner");
       gameOver = true;
     }
     p1Display.textContent = playerOneValue;
@@ -33,6 +34,7 @@ player2.addEventListener("click", () => {
   if (!gameOver) {
     playerTwoValue++;
     if (playerTwoValue === maxPlay) {
+      p2Display.classList.add("winner");
       gameOver = true;
     }
     p2Display.textContent = playerTwoValue;
@@ -46,6 +48,8 @@ reset.addEventListener("click", () => {
   p1Display.textContent = playerOneValue;
   p2Display.textContent = playerTwoValue;
   maxPlayDisplay.textContent = maxPlay;
-  inputForm.value = 0;
+  inputForm.value = null;
+  p1Display.classList.remove("winner");
+  p2Display.classList.remove("winner");
 });
 console.log("maxPlay", maxPlay);
