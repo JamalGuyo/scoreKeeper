@@ -2,19 +2,13 @@
 let gameOver = false;
 let playerOneValue = 0;
 let playerTwoValue = 0;
-var maxPlay = 2;
+var maxPlay = 0;
 //
 let p1Display = document.querySelector("#one");
 let p2Display = document.querySelector("#two");
 let maxPlayDisplay = document.querySelector("#fromInput");
-maxPlayDisplay.textContent = maxPlay;
 //
 let inputForm = document.querySelector("#inputForm");
-let submitBtn = document
-  .querySelector("#submitBtn")
-  .addEventListener("click", () => {
-    maxPlay = inputForm.value;
-  });
 //
 let player1 = document.querySelector("#playerOne");
 let player2 = document.querySelector("#playerTwo");
@@ -52,4 +46,8 @@ reset.addEventListener("click", () => {
   p1Display.classList.remove("winner");
   p2Display.classList.remove("winner");
 });
-console.log("maxPlay", maxPlay);
+
+inputForm.addEventListener("change", () => {
+  maxPlayDisplay.textContent = inputForm.value;
+  maxPlay = parseInt(inputForm.value);
+});
